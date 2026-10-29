@@ -30,7 +30,7 @@
   color-scheme: dark;
 }
 
-html { scroll-behavior: smooth; background: var(--rose); }
+html { scroll-behavior: smooth; background: var(--rose); overflow-x: hidden; overflow-x: clip; }
 body {
   background: var(--rose);
   color: var(--ivory);
@@ -42,6 +42,7 @@ body {
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
   overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -123,6 +124,24 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
   gap: 0;
   position: relative;
 }
+.hero > *:not(.hero-bg) { position: relative; z-index: 1; }
+.hero-bg {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  z-index: 0;
+  pointer-events: none;
+  background: url("images/photo-03.jpg") center 62% / cover no-repeat;
+  filter: grayscale(1) contrast(1.05);
+  mix-blend-mode: luminosity;
+  opacity: 0.2;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
+  animation: fadeIn 2.4s var(--ease) both;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 0.2; } }
 .hero .eyebrow { animation: rise 1.6s var(--ease) 0.2s both; }
 .names {
   margin: 34px 0 30px;
@@ -186,26 +205,6 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
   color: var(--white);
   font-variant-numeric: lining-nums tabular-nums;
 }
-.scroll-cue {
-  position: absolute;
-  bottom: 18px; left: 50%;
-  transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: 10px;
-  font-family: var(--font-display);
-  font-size: 0.68rem;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--ivory-faint);
-  text-decoration: none;
-  animation: rise 1.6s var(--ease) 2.2s both;
-}
-.scroll-cue i {
-  display: block; width: 1px; height: 44px;
-  background: linear-gradient(to bottom, var(--ivory-soft), transparent);
-  animation: drip 2.6s var(--ease) infinite;
-  transform-origin: top;
-}
-
 /* ---------- Invitation ---------- */
 .invite-text {
   max-width: 30em;
@@ -268,6 +267,15 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
 .ph-photo::before { z-index: 1; border-color: rgba(253, 251, 247, 0.55); }
 .ph-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .frame { margin: 0; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.frame-full {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+.frame-full .ph { border: none; }
+@media (min-width: 760px) {
+  .frame-full { width: 720px; margin-left: calc(50% - 360px); }
+}
 .ph {
   position: relative;
   aspect-ratio: 4 / 5;
@@ -470,13 +478,13 @@ footer .mono em { font-style: italic; letter-spacing: 0; color: var(--ivory-soft
 <main>
   <!-- HERO -->
   <section class="scene hero" id="top" aria-label="Welcome">
+    <div class="hero-bg" aria-hidden="true"></div>
     <p class="eyebrow">The Wedding of</p>
     <h1 class="names"><span>Becky</span><span class="amp">&amp;</span><span>Patrick</span></h1>
     <div class="hero-rule" aria-hidden="true"></div>
     <p class="hero-date caps">January 16, 2027</p>
     <p class="hero-day caps">Saturday · 3:00 PM · Hong Kong</p>
     <p class="countdown caps" aria-live="polite"><strong id="days">79</strong> <span id="days-label">Days to go!</span></p>
-    <a class="scroll-cue" href="#invitation">Scroll<i aria-hidden="true"></i></a>
   </section>
 
   <div class="divider" data-reveal aria-hidden="true"></div>
@@ -484,7 +492,7 @@ footer .mono em { font-style: italic; letter-spacing: 0; color: var(--ivory-soft
   <!-- FEATURE PHOTO -->
   <section class="scene scene-feature" aria-label="Featured photo">
     <div class="gallery">
-      <figure class="frame frame-feature" data-reveal>
+      <figure class="frame frame-feature frame-full" data-reveal>
         <div class="ph ph-photo ph-square"><img src="images/photo-01.jpg" alt="Becky and Patrick holding hands in a garden courtyard with a wall of red roses" width="1080" height="1080"></div>
       </figure>
     </div>
@@ -536,13 +544,10 @@ footer .mono em { font-style: italic; letter-spacing: 0; color: var(--ivory-soft
     </div>
 
     <div class="gallery">
-      <figure class="frame" data-reveal>
+      <figure class="frame frame-full" data-reveal>
         <div class="ph ph-photo" style="aspect-ratio:1200 / 800"><img src="images/photo-02.jpg" alt="Becky and Patrick sitting on rocks by a lake with a white pavilion behind them" width="1200" height="800"></div>
       </figure>
-      <figure class="frame" data-reveal>
-        <div class="ph ph-photo" style="aspect-ratio:800 / 1200"><img src="images/photo-03.jpg" alt="Becky and Patrick linking pinky fingers to show their rings, foreheads touching behind" width="800" height="1200"></div>
-      </figure>
-      <figure class="frame" data-reveal>
+      <figure class="frame frame-full" data-reveal>
         <div class="ph ph-photo" style="aspect-ratio:1200 / 800"><img src="images/photo-04.jpg" alt="Becky and Patrick leaning on either side of a white pillar among green trees, smiling at each other" width="1200" height="800"></div>
       </figure>
     </div>
@@ -561,7 +566,7 @@ footer .mono em { font-style: italic; letter-spacing: 0; color: var(--ivory-soft
     <p class="venue-name" data-reveal style="--d:120ms">基督教五旬節堂</p>
     <p class="venue-addr" data-reveal style="--d:200ms" id="addr">九龍何文田窩打老道71號</p>
     <div class="actions" data-reveal style="--d:280ms">
-      <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%9F%BA%E7%9D%A3%E6%95%99%E4%BA%94%E6%97%AC%E7%AF%80%E5%A0%82%20%E4%B9%9D%E9%BE%8D%E4%BD%95%E6%96%87%E7%94%B0%E7%AA%A9%E6%89%93%E8%80%81%E9%81%9371%E8%99%9F" target="_blank" rel="noopener">Open in Google Maps</a>
+      <a class="btn" href="https://maps.app.goo.gl/dQ5R2ye5DJFdsdiB9" target="_blank" rel="noopener">Open in Google Maps</a>
       <button class="btn" type="button" id="copy-addr">Copy Address</button>
     </div>
     <p class="copy-note" id="copy-note" aria-live="polite"></p>
