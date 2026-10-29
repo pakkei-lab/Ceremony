@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Becky &amp; Patrick · January 16, 2027 · 基督教五旬節堂">
+<meta property="og:title" content="Becky &amp; Patrick · January 16, 2027">
+<meta property="og:description" content="誠邀您見證我們人生中最重要的一天。">
+<meta property="og:image" content="images/photo-01.jpg">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Becky & Patrick Wedding</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+TC:wght@300;400;500&display=swap">
+<style>
+/* Layout: one centered column of cinematic "scenes", separated by hairline verticals, on full-bleed smoky rose */
+:root {
+  --rose: #846862;
+  --rose-deep: #765b55;
+  --white: #FFFFFF;
+  --ivory: #FDFBF7;
+  --ivory-soft: rgba(253, 251, 247, 0.74);
+  --ivory-faint: rgba(253, 251, 247, 0.48);
+  --line: rgba(253, 251, 247, 0.38);
+  --font-display: 'Cormorant Garamond', 'Noto Serif TC', 'Times New Roman', Georgia, serif;
+  --font-body: 'Noto Serif TC', 'Cormorant Garamond', 'PMingLiU', 'Songti TC', serif;
+  --track: 0.15em;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  color-scheme: dark;
+}
+
+html { scroll-behavior: smooth; background: var(--rose); }
+body {
+  background: var(--rose);
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.9;
+  text-align: center;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Film grain + soft vignette for a cinematic finish */
+body::after {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.09;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(120% 90% at 50% 40%, transparent 55%, rgba(60, 40, 36, 0.32) 100%);
+}
+
+main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
+
+/* ---------- Typography ---------- */
+.caps {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--track);
+  font-weight: 400;
+}
+.eyebrow {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-size: 0.78rem;
+  color: var(--ivory-soft);
+}
+.section-title {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--track);
+  font-weight: 300;
+  font-size: clamp(2rem, 6vw, 3.25rem);
+  line-height: 1.15;
+  color: var(--white);
+  text-wrap: balance;
+  margin: 0;
+}
+.section-sub {
+  font-family: var(--font-body);
+  letter-spacing: 0.3em;
+  font-size: 0.85rem;
+  color: var(--ivory-faint);
+  margin: 0;
+}
+
+/* ---------- Scenes ---------- */
+.scene {
+  padding-block: clamp(88px, 14vw, 160px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+.scene-head { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+
+.divider {
+  width: 1px;
+  height: 96px;
+  margin: 0 auto;
+  background: linear-gradient(to bottom, transparent, var(--line), transparent);
+  transform-origin: top;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  min-height: 92svh;
+  justify-content: center;
+  padding-block: 72px 56px;
+  gap: 0;
+  position: relative;
+}
+.hero .eyebrow { animation: rise 1.6s var(--ease) 0.2s both; }
+.names {
+  margin: 34px 0 30px;
+  font-family: var(--font-display);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: var(--track);
+  color: var(--white);
+  line-height: 1.02;
+  font-size: clamp(2.9rem, 11vw, 7rem);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  column-gap: 0.32em;
+}
+.names span { display: inline-block; animation: rise 1.8s var(--ease) both; }
+.names span:nth-child(1) { animation-delay: 0.45s; }
+.names span:nth-child(2) { animation-delay: 0.75s; }
+.names span:nth-child(3) { animation-delay: 1.0s; }
+.names .amp {
+  font-style: italic;
+  font-weight: 300;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--ivory-soft);
+  font-size: 0.78em;
+}
+.hero-rule {
+  width: 64px; height: 1px; background: var(--line);
+  animation: grow 1.6s var(--ease) 1.3s both;
+}
+.hero-date {
+  margin: 30px 0 6px;
+  font-size: clamp(1.1rem, 3.2vw, 1.5rem);
+  color: var(--white);
+  animation: rise 1.6s var(--ease) 1.45s both;
+}
+.hero-day {
+  font-size: 0.8rem;
+  letter-spacing: 0.32em;
+  color: var(--ivory-soft);
+  animation: rise 1.6s var(--ease) 1.6s both;
+}
+.countdown {
+  margin-top: 44px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5em;
+  padding: 14px 28px;
+  border: 1px solid var(--line);
+  color: var(--ivory);
+  font-size: 0.95rem;
+  animation: rise 1.6s var(--ease) 1.8s both;
+}
+.countdown strong {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.6rem;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.scroll-cue {
+  position: absolute;
+  bottom: 18px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ivory-faint);
+  text-decoration: none;
+  animation: rise 1.6s var(--ease) 2.2s both;
+}
+.scroll-cue i {
+  display: block; width: 1px; height: 44px;
+  background: linear-gradient(to bottom, var(--ivory-soft), transparent);
+  animation: drip 2.6s var(--ease) infinite;
+  transform-origin: top;
+}
+
+/* ---------- Invitation ---------- */
+.invite-text {
+  max-width: 30em;
+  margin: 12px auto 0;
+  font-size: clamp(1.02rem, 2.6vw, 1.15rem);
+  letter-spacing: 0.12em;
+  line-height: 2.3;
+  color: var(--ivory);
+}
+.invite-text p { margin: 0; }
+.couple {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 520px;
+  margin-top: 28px;
+}
+.person { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.role {
+  font-size: 0.82rem;
+  letter-spacing: 0.4em;
+  color: var(--ivory-faint);
+}
+.role .en { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.3em; }
+.person .name {
+  font-size: clamp(1.45rem, 4.4vw, 1.9rem);
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  color: var(--white);
+  padding-left: 0.3em; /* balance trailing tracking */
+}
+.hosts { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 18px; }
+.hosts .pair {
+  font-size: 1.1rem;
+  letter-spacing: 0.3em;
+  color: var(--ivory);
+  display: flex; gap: 1.6em; justify-content: center; flex-wrap: wrap;
+}
+.signoff {
+  margin-top: 26px;
+  font-size: 1.05rem;
+  letter-spacing: 0.6em;
+  padding-left: 0.6em;
+  color: var(--white);
+}
+
+/* ---------- Photos ---------- */
+.gallery {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(56px, 12vw, 88px);
+  margin-top: 16px;
+}
+.scene-feature { padding-block: clamp(56px, 10vw, 96px); }
+.ph-square { aspect-ratio: 1 / 1; }
+.ph-photo::before { z-index: 1; border-color: rgba(253, 251, 247, 0.55); }
+.ph-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.frame { margin: 0; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.ph {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  max-width: 100%;
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, rgba(253,251,247,0.06), rgba(60,40,36,0.10));
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.ph::before {
+  content: "";
+  position: absolute; inset: 10px;
+  border: 1px solid rgba(253, 251, 247, 0.16);
+}
+.ph .ph-label {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  color: var(--ivory-faint);
+}
+.ph svg { width: 30px; height: 30px; stroke: var(--ivory-soft); fill: none; stroke-width: 1; }
+.ph .ph-label span { font-family: var(--font-display); font-size: 0.72rem; letter-spacing: 0.32em; text-transform: uppercase; }
+.frame figcaption {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: var(--ivory-soft);
+}
+
+/* ---------- Rundown ---------- */
+.rundown {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+}
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-block: 40px;
+  position: relative;
+}
+.step + .step::before {
+  content: "";
+  position: absolute; top: 0; left: 50%;
+  width: 28px; height: 1px;
+  transform: translateX(-50%);
+  background: var(--line);
+}
+.step .num {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  color: var(--ivory-faint);
+}
+.step h3 {
+  margin: 0;
+  font-weight: 400;
+  font-size: clamp(1.3rem, 4vw, 1.6rem);
+  letter-spacing: 0.4em;
+  padding-left: 0.4em;
+  color: var(--white);
+  line-height: 1.5;
+}
+.step .detail {
+  margin: 0;
+  max-width: 26em;
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  color: var(--ivory);
+}
+.step .detail.latin {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+}
+.posture {
+  margin-top: 4px;
+  display: inline-flex; align-items: center; gap: 0.8em;
+  padding: 4px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  letter-spacing: 0.3em;
+  color: var(--ivory-soft);
+}
+.posture .en { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.24em; font-size: 0.7rem; }
+
+.lyrics {
+  margin-top: 22px;
+  width: 100%;
+  max-width: 30em;
+  padding: 30px clamp(16px, 5vw, 40px);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.lyrics .verse { margin: 0; font-size: 0.98rem; line-height: 2.1; letter-spacing: 0.14em; color: var(--ivory-soft); }
+.lyrics .verse-no {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  color: var(--ivory-faint);
+  margin-bottom: 6px;
+}
+
+/* ---------- Venue ---------- */
+.venue-name {
+  margin: 8px 0 0;
+  font-size: clamp(1.5rem, 4.6vw, 2.1rem);
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  padding-left: 0.32em;
+  color: var(--white);
+}
+.venue-time { margin: 8px 0 0; font-size: 0.95rem; color: var(--ivory-soft); }
+.venue-addr {
+  margin: 0;
+  font-size: 1.05rem;
+  letter-spacing: 0.2em;
+  color: var(--ivory);
+  user-select: all;
+}
+.actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 18px; }
+.btn {
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--ivory-soft);
+  color: var(--white);
+  padding: 13px 26px;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.5s var(--ease), color 0.5s var(--ease);
+}
+.btn:hover { background: var(--ivory); color: var(--rose); }
+.btn:focus-visible { outline: 1px solid var(--white); outline-offset: 4px; }
+.copy-note { min-height: 1.4em; font-size: 0.8rem; letter-spacing: 0.2em; color: var(--ivory-soft); margin: 0; }
+
+/* ---------- Footer ---------- */
+footer {
+  position: relative; z-index: 1;
+  padding-block: 64px 88px;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+footer .mono {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 2.4rem;
+  letter-spacing: 0.2em;
+  color: var(--white);
+}
+footer .mono em { font-style: italic; letter-spacing: 0; color: var(--ivory-soft); margin: 0 0.15em; }
+
+/* ---------- Reveal on scroll ---------- */
+[data-reveal] {
+  transition: opacity 1.5s var(--ease), transform 1.5s var(--ease);
+  transition-delay: var(--d, 0ms);
+}
+[data-reveal].is-pending { opacity: 0; transform: translateY(32px); }
+.divider[data-reveal].is-pending { transform: scaleY(0); opacity: 0; }
+
+@keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+@keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes drip {
+  0% { transform: scaleY(0); opacity: 0; }
+  30% { opacity: 1; }
+  70% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+
+@media (max-width: 480px) {
+  body { font-size: 15px; }
+  .names { flex-direction: column; align-items: center; row-gap: 0.08em; }
+  .countdown { padding: 12px 20px; }
+  .step { padding-block: 32px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  [data-reveal].is-pending { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+<main>
+  <!-- HERO -->
+  <section class="scene hero" id="top" aria-label="Welcome">
+    <p class="eyebrow">The Wedding of</p>
+    <h1 class="names"><span>Becky</span><span class="amp">&amp;</span><span>Patrick</span></h1>
+    <div class="hero-rule" aria-hidden="true"></div>
+    <p class="hero-date caps">January 16, 2027</p>
+    <p class="hero-day caps">Saturday · 3:00 PM · Hong Kong</p>
+    <p class="countdown caps" aria-live="polite"><strong id="days">79</strong> <span id="days-label">Days to go!</span></p>
+    <a class="scroll-cue" href="#invitation">Scroll<i aria-hidden="true"></i></a>
+  </section>
+
+  <div class="divider" data-reveal aria-hidden="true"></div>
+
+  <!-- FEATURE PHOTO -->
+  <section class="scene scene-feature" aria-label="Featured photo">
+    <div class="gallery">
+      <figure class="frame frame-feature" data-reveal>
+        <div class="ph ph-photo ph-square"><img src="images/photo-01.jpg" alt="Becky and Patrick holding hands in a garden courtyard with a wall of red roses" width="1080" height="1080"></div>
+      </figure>
+    </div>
+  </section>
+
+  <div class="divider" data-reveal aria-hidden="true"></div>
+
+  <!-- INVITATION -->
+  <section class="scene" id="invitation" aria-labelledby="t-invite">
+    <div class="scene-head" data-reveal>
+      <p class="eyebrow">I</p>
+      <h2 class="section-title" id="t-invite">The Invitation</h2>
+      <p class="section-sub">誠 意 邀 請</p>
+    </div>
+
+    <div class="invite-text" data-reveal style="--d:120ms">
+      <p>誠邀您見證我們人生中最重要的一天。</p>
+      <p>期待您的到臨，與我們一同分享這份喜悅與幸福。</p>
+    </div>
+
+    <div class="couple" data-reveal style="--d:200ms">
+      <div class="person">
+        <span class="role">新郎 · <span class="en">Groom</span></span>
+        <span class="name">梁柏基</span>
+      </div>
+      <div class="person">
+        <span class="role">新娘 · <span class="en">Bride</span></span>
+        <span class="name">李家穎</span>
+      </div>
+    </div>
+
+    <div class="hosts" data-reveal style="--d:260ms">
+      <span class="role">主婚人</span>
+      <div class="pair"><span>梁國鴻</span><span>李瑞瓊</span></div>
+      <div class="pair"><span>李少鋒</span><span>陳婉儀</span></div>
+    </div>
+
+    <p class="signoff" data-reveal style="--d:320ms">敬邀</p>
+  </section>
+
+  <div class="divider" data-reveal aria-hidden="true"></div>
+
+  <!-- PHOTOS -->
+  <section class="scene" id="photos" aria-labelledby="t-photos">
+    <div class="scene-head" data-reveal>
+      <p class="eyebrow">II</p>
+      <h2 class="section-title" id="t-photos">Our Moments</h2>
+      <p class="section-sub">婚 禮 相 簿</p>
+    </div>
+
+    <div class="gallery">
+      <figure class="frame" data-reveal>
+        <div class="ph ph-photo" style="aspect-ratio:1200 / 800"><img src="images/photo-02.jpg" alt="Becky and Patrick sitting on rocks by a lake with a white pavilion behind them" width="1200" height="800"></div>
+      </figure>
+      <figure class="frame" data-reveal>
+        <div class="ph ph-photo" style="aspect-ratio:800 / 1200"><img src="images/photo-03.jpg" alt="Becky and Patrick linking pinky fingers to show their rings, foreheads touching behind" width="800" height="1200"></div>
+      </figure>
+      <figure class="frame" data-reveal>
+        <div class="ph ph-photo" style="aspect-ratio:1200 / 800"><img src="images/photo-04.jpg" alt="Becky and Patrick leaning on either side of a white pillar among green trees, smiling at each other" width="1200" height="800"></div>
+      </figure>
+    </div>
+  </section>
+
+  <div class="divider" data-reveal aria-hidden="true"></div>
+
+  <!-- VENUE -->
+  <section class="scene" id="venue" aria-labelledby="t-venue">
+    <div class="scene-head" data-reveal>
+      <p class="eyebrow">III</p>
+      <h2 class="section-title" id="t-venue">The Venue</h2>
+      <p class="section-sub">婚 禮 地 點</p>
+    </div>
+    <p class="venue-time caps" data-reveal style="--d:80ms">16.01.2027 · 下午三時 · 3:00 PM</p>
+    <p class="venue-name" data-reveal style="--d:120ms">基督教五旬節堂</p>
+    <p class="venue-addr" data-reveal style="--d:200ms" id="addr">九龍何文田窩打老道71號</p>
+    <div class="actions" data-reveal style="--d:280ms">
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%9F%BA%E7%9D%A3%E6%95%99%E4%BA%94%E6%97%AC%E7%AF%80%E5%A0%82%20%E4%B9%9D%E9%BE%8D%E4%BD%95%E6%96%87%E7%94%B0%E7%AA%A9%E6%89%93%E8%80%81%E9%81%9371%E8%99%9F" target="_blank" rel="noopener">Open in Google Maps</a>
+      <button class="btn" type="button" id="copy-addr">Copy Address</button>
+    </div>
+    <p class="copy-note" id="copy-note" aria-live="polite"></p>
+  </section>
+
+  <div class="divider" data-reveal aria-hidden="true"></div>
+
+  <!-- RUNDOWN -->
+  <section class="scene" id="rundown" aria-labelledby="t-rundown">
+    <div class="scene-head" data-reveal>
+      <p class="eyebrow">IV</p>
+      <h2 class="section-title" id="t-rundown">The Ceremony</h2>
+      <p class="section-sub">婚 禮 流 程</p>
+    </div>
+
+    <ol class="rundown">
+      <li class="step" data-reveal>
+        <span class="num">01</span>
+        <h3>序樂</h3>
+        <p class="detail">主禮人、詩班進堂</p>
+        <span class="posture">眾立 <span class="en">Please stand</span></span>
+      </li>
+      <li class="step" data-reveal>
+        <span class="num">02</span>
+        <h3>婚樂</h3>
+        <p class="detail">新人進堂</p>
+        <span class="posture">眾立 <span class="en">Please stand</span></span>
+      </li>
+      <li class="step" data-reveal>
+        <span class="num">03</span>
+        <h3>會眾唱詩</h3>
+        <p class="detail">求賜福屬主之家</p>
+        <span class="posture">眾立 <span class="en">Please stand</span></span>
+        <div class="lyrics">
+          <p class="verse"><span class="verse-no">Verse I</span>求主賜福我們屬主之家，親臨進居其中。<br>主之話語作我庇護，不被罪惡侵擾。<br>一室溫馨不聞爭競，和睦安詳日增，<br>生活起居豐足美滿，主內平安洋溢。</p>
+          <p class="verse"><span class="verse-no">Verse II</span>屬主教會家庭同心合意，表彰完美主道。<br>像主一般溫柔仁愛，無人誤入歧途。<br>一切虛浮意欲遠離，主愛主恩滿充。<br>合家人人敞開心門，讓主居住其中。</p>
+          <p class="verse"><span class="verse-no">Verse III</span>願主聖容光輝大顯照耀，盡去黑暗阻擾。<br>主愛充滿每一角落，與主團契喜樂。<br>恆忍堅信懇切禱告，主前誓盟堅牢。<br>願成聖潔作神居所，平安快樂永固。</p>
+        </div>
+      </li>
+      <li class="step" data-reveal>
+        <span class="num">04</span>
+        <h3>證婚</h3>
+        <span class="posture">眾坐 <span class="en">Please be seated</span></span>
+      </li>
+      <li class="step" data-reveal>
+        <span class="num">05</span>
+        <h3>詩班獻詩</h3>
+        <p class="detail latin">All Things Bright &amp; Beautiful</p>
+        <span class="posture">眾坐 <span class="en">Please be seated</span></span>
+      </li>
+      <li class="step" data-reveal>
+        <span class="num">06</span>
+        <h3>會眾唱詩</h3>
+        <p class="detail">讚美詩</p>
+        <span class="posture">眾立 <span class="en">Please stand</span></span>
+        <div class="lyrics">
+          <p class="verse">讚美天父愛世慈恩，讚美耶穌代贖鴻恩，<br>讚美聖靈開我茅塞，讚美三位合一真神。</p>
+        </div>
+      </li>
+      <li class="step" data-reveal>
+        <span class="num">07</span>
+        <h3>祝福</h3>
+        <span class="posture">眾立 <span class="en">Please stand</span></span>
+      </li>
+      <li class="step" data-reveal>
+        <span class="num">08</span>
+        <h3>殿樂</h3>
+        <p class="detail">新人、主婚人、主禮人及詩班依次步出禮堂</p>
+        <span class="posture">眾立 <span class="en">Please stand</span></span>
+      </li>
+    </ol>
+  </section>
+</main>
+
+<footer>
+  <div class="divider" data-reveal aria-hidden="true"></div>
+  <p class="mono" data-reveal>B<em>&amp;</em>P</p>
+  <p class="eyebrow" data-reveal style="--d:120ms">16 · 01 · 2027</p>
+</footer>
+
+<script>
+(function () {
+  // Countdown to 16 Jan 2027, Hong Kong time
+  var target = new Date('2027-01-16T00:00:00+08:00').getTime();
+  var daysEl = document.getElementById('days');
+  var labelEl = document.getElementById('days-label');
+  function tick() {
+    var diff = target - Date.now();
+    var days = Math.ceil(diff / 86400000);
+    if (days > 1) { daysEl.textContent = days; labelEl.textContent = 'Days to go!'; }
+    else if (days === 1) { daysEl.textContent = '1'; labelEl.textContent = 'Day to go!'; }
+    else if (diff > -86400000) { daysEl.textContent = ''; labelEl.textContent = 'Today is the day!'; }
+    else { daysEl.textContent = ''; labelEl.textContent = 'Just married'; }
+  }
+  tick();
+  setInterval(tick, 60000);
+
+  // Fade-in & slide-up: only elements below the first screen start hidden
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.remove('is-pending');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+    document.querySelectorAll('[data-reveal]').forEach(function (el) {
+      if (el.getBoundingClientRect().top > window.innerHeight * 0.9) {
+        el.classList.add('is-pending');
+        io.observe(el);
+      }
+    });
+  }
+
+  // Copy address
+  var btn = document.getElementById('copy-addr');
+  var note = document.getElementById('copy-note');
+  var addr = '基督教五旬節堂 九龍何文田窩打老道71號';
+  btn.addEventListener('click', function () {
+    function fallback() {
+      var r = document.createRange();
+      r.selectNodeContents(document.getElementById('addr'));
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      note.textContent = '地址已選取，請按複製 · Address selected';
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(addr).then(function () {
+        note.textContent = '已複製地址 · Address copied';
+      }, fallback);
+    } else { fallback(); }
+  });
+})();
+</script>
+</body>
+</html>
