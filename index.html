@@ -388,6 +388,12 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
   gap: 24px;
 }
 .lyrics .verse { margin: 0; font-size: 0.98rem; line-height: 2.1; letter-spacing: 0.14em; color: var(--ivory-soft); }
+.lyric-line {
+  display: block;
+  opacity: var(--lp, 1);
+  transform: translateY(calc(14px * (1 - var(--lp, 1))));
+  will-change: opacity, transform;
+}
 .lyrics .verse-no {
   display: block;
   font-family: var(--font-display);
@@ -406,7 +412,7 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
   padding-left: 0.32em;
   color: var(--white);
 }
-.venue-time { margin: 8px 0 0; font-size: 0.95rem; color: var(--ivory-soft); }
+.venue-time { margin: 8px 0 0; font-size: clamp(1.1rem, 3.6vw, 1.3rem); color: var(--ivory); }
 .venue-addr {
   margin: 0;
   font-size: 1.05rem;
@@ -431,6 +437,18 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
 }
 .btn:hover { background: var(--ivory); color: var(--rose); }
 .btn:focus-visible { outline: 1px solid var(--white); outline-offset: 4px; }
+.actions.cal { margin-top: 0; flex-direction: column; align-items: center; }
+.btn { font-family: var(--font-body); letter-spacing: 0.3em; font-size: 0.92rem; padding: 13px 26px 13px calc(26px + 0.3em); }
+.cal-menu { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.cal-link {
+  color: var(--ivory);
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  padding: 8px 4px;
+  border-bottom: 1px solid var(--line);
+}
+.cal-link:hover, .cal-link:focus-visible { color: var(--white); border-bottom-color: var(--ivory); outline: none; }
 .copy-note { min-height: 1.4em; font-size: 0.8rem; letter-spacing: 0.2em; color: var(--ivory-soft); margin: 0; }
 
 /* ---------- Footer ---------- */
@@ -552,8 +570,15 @@ footer .mono em { font-style: italic; letter-spacing: 0; color: var(--ivory-soft
     <p class="venue-name" data-reveal style="--d:120ms">基督教五旬節堂</p>
     <p class="venue-addr" data-reveal style="--d:200ms" id="addr">九龍何文田窩打老道71號</p>
     <div class="actions" data-reveal style="--d:280ms">
-      <a class="btn" href="https://maps.app.goo.gl/dQ5R2ye5DJFdsdiB9" target="_blank" rel="noopener">Open in Google Maps</a>
-      <button class="btn" type="button" id="copy-addr">Copy Address</button>
+      <a class="btn" href="https://maps.app.goo.gl/dQ5R2ye5DJFdsdiB9" target="_blank" rel="noopener">開啟地圖</a>
+      <button class="btn" type="button" id="copy-addr">複製地址</button>
+    </div>
+    <div class="actions cal" data-reveal style="--d:320ms">
+      <button class="btn" type="button" id="cal-btn" aria-expanded="false" aria-controls="cal-menu">加入行事曆</button>
+      <div class="cal-menu" id="cal-menu" hidden>
+        <a class="cal-link" href="wedding.ics">iPhone / Apple 日曆</a>
+        <a class="cal-link" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Becky+%26+Patrick+%E5%A9%9A%E7%A6%AE&amp;dates=20270116T070000Z%2F20270116T083000Z&amp;location=%E5%9F%BA%E7%9D%A3%E6%95%99%E4%BA%94%E6%97%AC%E7%AF%80%E5%A0%82%EF%BC%8C%E4%B9%9D%E9%BE%8D%E4%BD%95%E6%96%87%E7%94%B0%E7%AA%A9%E6%89%93%E8%80%81%E9%81%9371%E8%99%9F&amp;details=%E6%A2%81%E6%9F%8F%E5%9F%BA+%26+%E6%9D%8E%E5%AE%B6%E7%A9%8E+%E5%A9%9A%E7%A6%AE%0A%E5%9C%B0%E5%9C%96%EF%BC%9Ahttps%3A%2F%2Fmaps.app.goo.gl%2FdQ5R2ye5DJFdsdiB9" target="_blank" rel="noopener">Google 日曆 / Android</a>
+      </div>
     </div>
     <p class="copy-note" id="copy-note" aria-live="polite"></p>
   </section>
@@ -593,9 +618,9 @@ footer .mono em { font-style: italic; letter-spacing: 0; color: var(--ivory-soft
         <p class="detail">求賜福屬主之家</p>
         <span class="posture">眾立 <span class="en">Please stand</span></span>
         <div class="lyrics">
-          <p class="verse"><span class="verse-no">Verse I</span>求主賜福我們屬主之家，親臨進居其中。<br>主之話語作我庇護，不被罪惡侵擾。<br>一室溫馨不聞爭競，和睦安詳日增，<br>生活起居豐足美滿，主內平安洋溢。</p>
-          <p class="verse"><span class="verse-no">Verse II</span>屬主教會家庭同心合意，表彰完美主道。<br>像主一般溫柔仁愛，無人誤入歧途。<br>一切虛浮意欲遠離，主愛主恩滿充。<br>合家人人敞開心門，讓主居住其中。</p>
-          <p class="verse"><span class="verse-no">Verse III</span>願主聖容光輝大顯照耀，盡去黑暗阻擾。<br>主愛充滿每一角落，與主團契喜樂。<br>恆忍堅信懇切禱告，主前誓盟堅牢。<br>願成聖潔作神居所，平安快樂永固。</p>
+          <p class="verse"><span class="verse-no">Verse I</span><span class="lyric-line">求主賜福我們屬主之家，親臨進居其中。</span><span class="lyric-line">主之話語作我庇護，不被罪惡侵擾。</span><span class="lyric-line">一室溫馨不聞爭競，和睦安詳日增，</span><span class="lyric-line">生活起居豐足美滿，主內平安洋溢。</span></p>
+          <p class="verse"><span class="verse-no">Verse II</span><span class="lyric-line">屬主教會家庭同心合意，表彰完美主道。</span><span class="lyric-line">像主一般溫柔仁愛，無人誤入歧途。</span><span class="lyric-line">一切虛浮意欲遠離，主愛主恩滿充。</span><span class="lyric-line">合家人人敞開心門，讓主居住其中。</span></p>
+          <p class="verse"><span class="verse-no">Verse III</span><span class="lyric-line">願主聖容光輝大顯照耀，盡去黑暗阻擾。</span><span class="lyric-line">主愛充滿每一角落，與主團契喜樂。</span><span class="lyric-line">恆忍堅信懇切禱告，主前誓盟堅牢。</span><span class="lyric-line">願成聖潔作神居所，平安快樂永固。</span></p>
         </div>
       </li>
       <li class="step" data-reveal>
@@ -615,7 +640,7 @@ footer .mono em { font-style: italic; letter-spacing: 0; color: var(--ivory-soft
         <p class="detail">讚美詩</p>
         <span class="posture">眾立 <span class="en">Please stand</span></span>
         <div class="lyrics">
-          <p class="verse">讚美天父愛世慈恩，讚美耶穌代贖鴻恩，<br>讚美聖靈開我茅塞，讚美三位合一真神。</p>
+          <p class="verse"><span class="lyric-line">讚美天父愛世慈恩，讚美耶穌代贖鴻恩，</span><span class="lyric-line">讚美聖靈開我茅塞，讚美三位合一真神。</span></p>
         </div>
       </li>
       <li class="step" data-reveal>
@@ -663,21 +688,22 @@ footer .mono em { font-style: italic; letter-spacing: 0; color: var(--ivory-soft
       entries.forEach(function (e) {
         if (e.isIntersecting) {
           e.target.classList.remove('is-pending');
-          io.unobserve(e.target);
+        } else if (e.boundingClientRect.top > 0) {
+          // element has dropped below the screen (scrolling up): reset so it plays again
+          e.target.classList.add('is-pending');
         }
       });
     }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
     document.querySelectorAll('[data-reveal]').forEach(function (el) {
-      if (el.getBoundingClientRect().top > window.innerHeight * 0.9) {
-        el.classList.add('is-pending');
-        io.observe(el);
-      }
+      if (el.getBoundingClientRect().top > window.innerHeight * 0.9) el.classList.add('is-pending');
+      io.observe(el);
     });
   }
 
 
   // Photos fade in with scroll progress
   var fades = Array.prototype.slice.call(document.querySelectorAll('.scroll-fade'));
+  var lines = Array.prototype.slice.call(document.querySelectorAll('.lyric-line'));
   if (!reduce && fades.length) {
     var ticking = false;
     var update = function () {
@@ -690,12 +716,28 @@ footer .mono em { font-style: italic; letter-spacing: 0; color: var(--ivory-soft
         p = Math.max(0, Math.min(1, p));
         el.style.setProperty('--p', p.toFixed(3));
       });
+      lines.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        // each lyric line rises in as it moves from 95% to 75% of the screen height
+        var p = (vh * 0.95 - r.top) / (vh * 0.2);
+        p = Math.max(0, Math.min(1, p));
+        el.style.setProperty('--lp', p.toFixed(3));
+      });
     };
     var onScroll = function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
     update();
   }
+
+  // Add to calendar menu
+  var calBtn = document.getElementById('cal-btn');
+  var calMenu = document.getElementById('cal-menu');
+  calBtn.addEventListener('click', function () {
+    var open = calMenu.hidden;
+    calMenu.hidden = !open;
+    calBtn.setAttribute('aria-expanded', String(open));
+  });
 
   // Copy address
   var btn = document.getElementById('copy-addr');

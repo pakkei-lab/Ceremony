@@ -12,3 +12,4 @@ Wedding e-invitation for Becky & Patrick, 16 January 2027, 3:00 PM, 基督教五
 
 - `index.html`: the whole page (styles and scripts included)
 - `images/`: photos 01 to 04
+- `wedding.ics`: calendar event used by the 「加入行事曆」 button
