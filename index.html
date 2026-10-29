@@ -100,7 +100,7 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
 
 /* ---------- Scenes ---------- */
 .scene {
-  padding-block: clamp(88px, 14vw, 160px);
+  padding-block: clamp(56px, 9vw, 104px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -110,7 +110,7 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
 
 .divider {
   width: 1px;
-  height: 96px;
+  height: 64px;
   margin: 0 auto;
   background: linear-gradient(to bottom, transparent, var(--line), transparent);
   transform-origin: top;
@@ -262,7 +262,8 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
   gap: clamp(56px, 12vw, 88px);
   margin-top: 16px;
 }
-.scene-photo { padding-block: clamp(48px, 9vw, 88px); }
+.scene-photo { padding-block: clamp(32px, 6vw, 56px) 0; }
+.scene-photo + .scene { padding-top: clamp(32px, 6vw, 48px); }
 .scroll-fade { opacity: var(--p, 1); transform: scale(calc(1.04 - 0.04 * var(--p, 1))); will-change: opacity, transform; }
 .scroll-fade .ph { overflow: hidden; }
 .ph-square { aspect-ratio: 1 / 1; }
@@ -270,10 +271,12 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
 .ph-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .frame { margin: 0; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
 .frame-full {
+  align-self: flex-start;
   width: 100vw;
   max-width: 100vw;
   margin-left: calc(50% - 50vw);
 }
+.frame-full .ph::before { display: none; }
 .frame-full .ph { border: none; }
 @media (min-width: 760px) {
   .frame-full { width: 720px; margin-left: calc(50% - 360px); }
@@ -433,17 +436,17 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
 /* ---------- Footer ---------- */
 footer {
   position: relative; z-index: 1;
-  padding-block: 64px 88px;
+  padding-block: 16px 72px;
   display: flex; flex-direction: column; align-items: center; gap: 12px;
 }
 footer .mono {
   font-family: var(--font-display);
   font-weight: 300;
   font-size: 2.4rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0;
   color: var(--white);
 }
-footer .mono em { font-style: italic; letter-spacing: 0; color: var(--ivory-soft); margin: 0 0.15em; }
+footer .mono em { font-style: italic; letter-spacing: 0; color: var(--ivory-soft); margin: 0 0.16em 0 0.1em; }
 
 /* ---------- Reveal on scroll ---------- */
 [data-reveal] {
@@ -491,16 +494,12 @@ footer .mono em { font-style: italic; letter-spacing: 0; color: var(--ivory-soft
 
   <div class="divider" data-reveal aria-hidden="true"></div>
 
-  <div class="divider" data-reveal aria-hidden="true"></div>
-
   <!-- PHOTO 01 -->
   <section class="scene scene-photo" aria-label="Photo 01">
     <figure class="frame frame-full scroll-fade">
       <div class="ph ph-photo" style="aspect-ratio:1200 / 800"><img src="images/photo-01.jpg" alt="Becky and Patrick holding hands in a garden courtyard with a wall of red roses" width="1200" height="800"></div>
     </figure>
   </section>
-
-  <div class="divider" data-reveal aria-hidden="true"></div>
 
   <!-- INVITATION -->
   <section class="scene" id="invitation" aria-labelledby="t-invite">
@@ -543,8 +542,6 @@ footer .mono em { font-style: italic; letter-spacing: 0; color: var(--ivory-soft
     </figure>
   </section>
 
-  <div class="divider" data-reveal aria-hidden="true"></div>
-
   <!-- VENUE -->
   <section class="scene" id="venue" aria-labelledby="t-venue">
     <div class="scene-head" data-reveal>
@@ -569,8 +566,6 @@ footer .mono em { font-style: italic; letter-spacing: 0; color: var(--ivory-soft
       <div class="ph ph-photo" style="aspect-ratio:1200 / 800"><img src="images/photo-04.jpg" alt="Becky and Patrick leaning on either side of a white pillar among green trees, smiling at each other" width="1200" height="800"></div>
     </figure>
   </section>
-
-  <div class="divider" data-reveal aria-hidden="true"></div>
 
   <!-- RUNDOWN -->
   <section class="scene" id="rundown" aria-labelledby="t-rundown">
