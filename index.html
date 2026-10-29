@@ -16,8 +16,8 @@
 <style>
 /* Layout: one centered column of cinematic "scenes", separated by hairline verticals, on full-bleed smoky rose */
 :root {
-  --rose: #846862;
-  --rose-deep: #765b55;
+  --rose: #9D7B76;
+  --rose-deep: #8a6a65;
   --white: #FFFFFF;
   --ivory: #FDFBF7;
   --ivory-soft: rgba(253, 251, 247, 0.74);
@@ -262,7 +262,9 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
   gap: clamp(56px, 12vw, 88px);
   margin-top: 16px;
 }
-.scene-feature { padding-block: clamp(56px, 10vw, 96px); }
+.scene-photo { padding-block: clamp(48px, 9vw, 88px); }
+.scroll-fade { opacity: var(--p, 1); transform: scale(calc(1.04 - 0.04 * var(--p, 1))); will-change: opacity, transform; }
+.scroll-fade .ph { overflow: hidden; }
 .ph-square { aspect-ratio: 1 / 1; }
 .ph-photo::before { z-index: 1; border-color: rgba(253, 251, 247, 0.55); }
 .ph-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -489,13 +491,13 @@ footer .mono em { font-style: italic; letter-spacing: 0; color: var(--ivory-soft
 
   <div class="divider" data-reveal aria-hidden="true"></div>
 
-  <!-- FEATURE PHOTO -->
-  <section class="scene scene-feature" aria-label="Featured photo">
-    <div class="gallery">
-      <figure class="frame frame-feature frame-full" data-reveal>
-        <div class="ph ph-photo ph-square"><img src="images/photo-01.jpg" alt="Becky and Patrick holding hands in a garden courtyard with a wall of red roses" width="1080" height="1080"></div>
-      </figure>
-    </div>
+  <div class="divider" data-reveal aria-hidden="true"></div>
+
+  <!-- PHOTO 01 -->
+  <section class="scene scene-photo" aria-label="Photo 01">
+    <figure class="frame frame-full scroll-fade">
+      <div class="ph ph-photo" style="aspect-ratio:1200 / 800"><img src="images/photo-01.jpg" alt="Becky and Patrick holding hands in a garden courtyard with a wall of red roses" width="1200" height="800"></div>
+    </figure>
   </section>
 
   <div class="divider" data-reveal aria-hidden="true"></div>
@@ -503,7 +505,6 @@ footer .mono em { font-style: italic; letter-spacing: 0; color: var(--ivory-soft
   <!-- INVITATION -->
   <section class="scene" id="invitation" aria-labelledby="t-invite">
     <div class="scene-head" data-reveal>
-      <p class="eyebrow">I</p>
       <h2 class="section-title" id="t-invite">The Invitation</h2>
       <p class="section-sub">誠 意 邀 請</p>
     </div>
@@ -535,22 +536,11 @@ footer .mono em { font-style: italic; letter-spacing: 0; color: var(--ivory-soft
 
   <div class="divider" data-reveal aria-hidden="true"></div>
 
-  <!-- PHOTOS -->
-  <section class="scene" id="photos" aria-labelledby="t-photos">
-    <div class="scene-head" data-reveal>
-      <p class="eyebrow">II</p>
-      <h2 class="section-title" id="t-photos">Our Moments</h2>
-      <p class="section-sub">婚 禮 相 簿</p>
-    </div>
-
-    <div class="gallery">
-      <figure class="frame frame-full" data-reveal>
-        <div class="ph ph-photo" style="aspect-ratio:1200 / 800"><img src="images/photo-02.jpg" alt="Becky and Patrick sitting on rocks by a lake with a white pavilion behind them" width="1200" height="800"></div>
-      </figure>
-      <figure class="frame frame-full" data-reveal>
-        <div class="ph ph-photo" style="aspect-ratio:1200 / 800"><img src="images/photo-04.jpg" alt="Becky and Patrick leaning on either side of a white pillar among green trees, smiling at each other" width="1200" height="800"></div>
-      </figure>
-    </div>
+  <!-- PHOTO 02 -->
+  <section class="scene scene-photo" aria-label="Photo 02">
+    <figure class="frame frame-full scroll-fade">
+      <div class="ph ph-photo" style="aspect-ratio:1200 / 800"><img src="images/photo-02.jpg" alt="Becky and Patrick sitting on rocks by a lake with a white pavilion behind them" width="1200" height="800"></div>
+    </figure>
   </section>
 
   <div class="divider" data-reveal aria-hidden="true"></div>
@@ -558,7 +548,6 @@ footer .mono em { font-style: italic; letter-spacing: 0; color: var(--ivory-soft
   <!-- VENUE -->
   <section class="scene" id="venue" aria-labelledby="t-venue">
     <div class="scene-head" data-reveal>
-      <p class="eyebrow">III</p>
       <h2 class="section-title" id="t-venue">The Venue</h2>
       <p class="section-sub">婚 禮 地 點</p>
     </div>
@@ -574,10 +563,18 @@ footer .mono em { font-style: italic; letter-spacing: 0; color: var(--ivory-soft
 
   <div class="divider" data-reveal aria-hidden="true"></div>
 
+  <!-- PHOTO 04 -->
+  <section class="scene scene-photo" aria-label="Photo 04">
+    <figure class="frame frame-full scroll-fade">
+      <div class="ph ph-photo" style="aspect-ratio:1200 / 800"><img src="images/photo-04.jpg" alt="Becky and Patrick leaning on either side of a white pillar among green trees, smiling at each other" width="1200" height="800"></div>
+    </figure>
+  </section>
+
+  <div class="divider" data-reveal aria-hidden="true"></div>
+
   <!-- RUNDOWN -->
   <section class="scene" id="rundown" aria-labelledby="t-rundown">
     <div class="scene-head" data-reveal>
-      <p class="eyebrow">IV</p>
       <h2 class="section-title" id="t-rundown">The Ceremony</h2>
       <p class="section-sub">婚 禮 流 程</p>
     </div>
@@ -681,6 +678,28 @@ footer .mono em { font-style: italic; letter-spacing: 0; color: var(--ivory-soft
         io.observe(el);
       }
     });
+  }
+
+
+  // Photos fade in with scroll progress
+  var fades = Array.prototype.slice.call(document.querySelectorAll('.scroll-fade'));
+  if (!reduce && fades.length) {
+    var ticking = false;
+    var update = function () {
+      ticking = false;
+      var vh = window.innerHeight;
+      fades.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        // 0 when the photo's top reaches the bottom of the screen, 1 once it has risen 55% of the screen
+        var p = (vh - r.top) / (vh * 0.55);
+        p = Math.max(0, Math.min(1, p));
+        el.style.setProperty('--p', p.toFixed(3));
+      });
+    };
+    var onScroll = function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
   }
 
   // Copy address
