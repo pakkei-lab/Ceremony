@@ -488,6 +488,15 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
   border-bottom: 1px solid var(--line);
 }
 .cal-link:hover, .cal-link:focus-visible { color: var(--white); border-bottom-color: var(--ivory); outline: none; }
+.banquet-times {
+  margin-top: 8px;
+  display: flex; align-items: center; justify-content: center;
+  gap: clamp(18px, 6vw, 36px);
+}
+.bt { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.bt-time { font-size: clamp(1.4rem, 5vw, 1.8rem); color: var(--white); font-variant-numeric: lining-nums; }
+.bt-label { font-size: 0.9rem; letter-spacing: 0.2em; color: var(--ivory-soft); }
+.bt-rule { width: 1px; height: 44px; background: var(--line); }
 .copy-note { min-height: 1.4em; font-size: 0.8rem; letter-spacing: 0.2em; color: var(--ivory-soft); margin: 0; }
 
 /* ---------- Footer ---------- */
@@ -633,7 +642,11 @@ footer {
       <h2 class="section-title" id="t-venue">Ceremony</h2>
       <p class="section-sub">證 婚 典 禮</p>
     </div>
-    <p class="venue-time caps" data-reveal style="--d:80ms">16.01.2027 · 下午三時 · 3:00 PM</p>
+    <div class="banquet-times" data-reveal style="--d:80ms">
+      <div class="bt"><span class="bt-time caps">2:30 PM</span><span class="bt-label">下午2:30 入座</span></div>
+      <span class="bt-rule" aria-hidden="true"></span>
+      <div class="bt"><span class="bt-time caps">3:00 PM</span><span class="bt-label">下午3:00 典禮開始</span></div>
+    </div>
     <p class="venue-name" data-reveal style="--d:120ms">基督教五旬節堂</p>
     <p class="venue-addr" data-reveal style="--d:200ms" id="addr">九龍何文田窩打老道71號</p>
     <div class="actions" data-reveal style="--d:280ms">
@@ -644,7 +657,7 @@ footer {
       <button class="btn" type="button" id="cal-btn" aria-expanded="false" aria-controls="cal-menu">加入行事曆</button>
       <div class="cal-menu" id="cal-menu" hidden>
         <a class="cal-link" href="wedding.ics">iPhone / Apple 日曆</a>
-        <a class="cal-link" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Becky+%26+Patrick+%E5%A9%9A%E7%A6%AE&amp;dates=20270116T070000Z%2F20270116T083000Z&amp;location=%E5%9F%BA%E7%9D%A3%E6%95%99%E4%BA%94%E6%97%AC%E7%AF%80%E5%A0%82%EF%BC%8C%E4%B9%9D%E9%BE%8D%E4%BD%95%E6%96%87%E7%94%B0%E7%AA%A9%E6%89%93%E8%80%81%E9%81%9371%E8%99%9F&amp;details=%E6%A2%81%E6%9F%8F%E5%9F%BA+%26+%E6%9D%8E%E5%AE%B6%E7%A9%8E+%E5%A9%9A%E7%A6%AE%0A%E5%9C%B0%E5%9C%96%EF%BC%9Ahttps%3A%2F%2Fmaps.app.goo.gl%2FdQ5R2ye5DJFdsdiB9" target="_blank" rel="noopener">Google 日曆 / Android</a>
+        <a class="cal-link" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Becky+%26+Patrick+%E5%A9%9A%E7%A6%AE&amp;dates=20270116T063000Z%2F20270116T083000Z&amp;location=%E5%9F%BA%E7%9D%A3%E6%95%99%E4%BA%94%E6%97%AC%E7%AF%80%E5%A0%82%EF%BC%8C%E4%B9%9D%E9%BE%8D%E4%BD%95%E6%96%87%E7%94%B0%E7%AA%A9%E6%89%93%E8%80%81%E9%81%9371%E8%99%9F&amp;details=%E6%A2%81%E6%9F%8F%E5%9F%BA+%26+%E6%9D%8E%E5%AE%B6%E7%A9%8E+%E5%A9%9A%E7%A6%AE%0A%E5%9C%B0%E5%9C%96%EF%BC%9Ahttps%3A%2F%2Fmaps.app.goo.gl%2FdQ5R2ye5DJFdsdiB9" target="_blank" rel="noopener">Google 日曆 / Android</a>
       </div>
     </div>
     <p class="copy-note" id="copy-note" aria-live="polite"></p>
