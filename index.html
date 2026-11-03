@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Becky &amp; Patrick · January 16, 2027 · 基督教五旬節堂">
 <meta property="og:title" content="Becky &amp; Patrick · January 16, 2027">
-<meta property="og:description" content="誠邀您見證我們人生中最重要的一天。">
+<meta property="og:description" content="期待您的到臨，與我們一同分享這份喜悅與幸福。">
 <meta property="og:image" content="images/photo-01.jpg">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Becky & Patrick Wedding</title>
@@ -376,6 +376,40 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
 }
 .posture .en { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.24em; font-size: 0.7rem; }
 
+.lyrics-toggle {
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  letter-spacing: 0.3em;
+  padding: 10px 0 8px 0.3em;
+  margin-top: 6px;
+  cursor: pointer;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.lyrics-toggle:hover { color: var(--white); border-bottom-color: var(--ivory); }
+.lyrics-toggle:focus-visible { outline: 1px solid var(--white); outline-offset: 4px; }
+.lt-icon {
+  width: 7px; height: 7px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 0.6s var(--ease);
+}
+.lyrics-toggle[aria-expanded="true"] .lt-icon { transform: translateY(2px) rotate(-135deg); }
+.lyrics-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  width: 100%;
+  max-width: 30em;
+  transition: grid-template-rows 0.9s var(--ease);
+}
+.lyrics-wrap.is-open { grid-template-rows: 1fr; }
+.lyrics-inner { overflow: hidden; min-height: 0; }
+.lyrics-inner .lyrics { max-width: none; }
 .lyrics {
   margin-top: 22px;
   width: 100%;
@@ -479,11 +513,11 @@ footer {
 .footer-brand {
   position: absolute;
   left: 0; right: 0; top: 0;
-  padding-top: 12%;
+  padding-top: 10%;
   display: flex; flex-direction: column; align-items: center;
   gap: 0;
 }
-.footer-logo { width: 26%; height: auto; display: block; }
+.footer-logo { width: 31%; height: auto; display: block; }
 .footer-date { margin: 3% 0 0; padding-left: 0.32em; color: var(--ivory); }
 @media (min-width: 760px) {
   .footer-wm { width: 720px; margin-left: calc(50% - 360px); }
@@ -551,12 +585,11 @@ footer {
   <!-- INVITATION -->
   <section class="scene" id="invitation" aria-labelledby="t-invite">
     <div class="scene-head" data-reveal>
-      <h2 class="section-title" id="t-invite">The Invitation</h2>
+      <h2 class="section-title" id="t-invite">You&rsquo;re Invited</h2>
       <p class="section-sub">誠 意 邀 請</p>
     </div>
 
     <div class="invite-text" data-reveal style="--d:120ms">
-      <p>誠邀您見證我們人生中最重要的一天。</p>
       <p>期待您的到臨，與我們一同分享這份喜悅與幸福。</p>
     </div>
 
@@ -592,7 +625,7 @@ footer {
   <!-- VENUE -->
   <section class="scene" id="venue" aria-labelledby="t-venue">
     <div class="scene-head" data-reveal>
-      <h2 class="section-title" id="t-venue">The Venue</h2>
+      <h2 class="section-title" id="t-venue">Venue</h2>
       <p class="section-sub">婚 禮 地 點</p>
     </div>
     <p class="venue-time caps" data-reveal style="--d:80ms">16.01.2027 · 下午三時 · 3:00 PM</p>
@@ -624,7 +657,7 @@ footer {
   <!-- RUNDOWN -->
   <section class="scene" id="rundown" aria-labelledby="t-rundown">
     <div class="scene-head" data-reveal>
-      <h2 class="section-title" id="t-rundown">The Ceremony</h2>
+      <h2 class="section-title" id="t-rundown">Ceremony</h2>
       <p class="section-sub">婚 禮 流 程</p>
     </div>
 
@@ -646,11 +679,12 @@ footer {
         <h3>會眾唱詩</h3>
         <p class="detail">求賜福屬主之家</p>
         <span class="posture">眾立 <span class="en">Please stand</span></span>
-        <div class="lyrics">
+        <button class="lyrics-toggle" type="button" aria-expanded="false" aria-controls="lyrics-1"><span class="lt-label">展開歌詞</span><span class="lt-icon" aria-hidden="true"></span></button>
+        <div class="lyrics-wrap" id="lyrics-1"><div class="lyrics-inner"><div class="lyrics">
           <p class="verse"><span class="verse-no">Verse I</span><span class="lyric-line">求主賜福我們屬主之家，親臨進居其中。</span><span class="lyric-line">主之話語作我庇護，不被罪惡侵擾。</span><span class="lyric-line">一室溫馨不聞爭競，和睦安詳日增，</span><span class="lyric-line">生活起居豐足美滿，主內平安洋溢。</span></p>
           <p class="verse"><span class="verse-no">Verse II</span><span class="lyric-line">屬主教會家庭同心合意，表彰完美主道。</span><span class="lyric-line">像主一般溫柔仁愛，無人誤入歧途。</span><span class="lyric-line">一切虛浮意欲遠離，主愛主恩滿充。</span><span class="lyric-line">合家人人敞開心門，讓主居住其中。</span></p>
           <p class="verse"><span class="verse-no">Verse III</span><span class="lyric-line">願主聖容光輝大顯照耀，盡去黑暗阻擾。</span><span class="lyric-line">主愛充滿每一角落，與主團契喜樂。</span><span class="lyric-line">恆忍堅信懇切禱告，主前誓盟堅牢。</span><span class="lyric-line">願成聖潔作神居所，平安快樂永固。</span></p>
-        </div>
+        </div></div></div>
       </li>
       <li class="step" data-reveal>
         <span class="num">04</span>
@@ -668,9 +702,10 @@ footer {
         <h3>會眾唱詩</h3>
         <p class="detail">讚美詩</p>
         <span class="posture">眾立 <span class="en">Please stand</span></span>
-        <div class="lyrics">
+        <button class="lyrics-toggle" type="button" aria-expanded="false" aria-controls="lyrics-2"><span class="lt-label">展開歌詞</span><span class="lt-icon" aria-hidden="true"></span></button>
+        <div class="lyrics-wrap" id="lyrics-2"><div class="lyrics-inner"><div class="lyrics">
           <p class="verse"><span class="lyric-line">讚美天父愛世慈恩，讚美耶穌代贖鴻恩，</span><span class="lyric-line">讚美聖靈開我茅塞，讚美三位合一真神。</span></p>
-        </div>
+        </div></div></div>
       </li>
       <li class="step" data-reveal>
         <span class="num">07</span>
@@ -766,6 +801,23 @@ footer {
     window.addEventListener('resize', onScroll);
     update();
   }
+
+  // Expand / collapse hymn lyrics
+  document.querySelectorAll('.lyrics-toggle').forEach(function (b) {
+    var panel = document.getElementById(b.getAttribute('aria-controls'));
+    b.addEventListener('click', function () {
+      var open = b.getAttribute('aria-expanded') !== 'true';
+      b.setAttribute('aria-expanded', String(open));
+      b.querySelector('.lt-label').textContent = open ? '收起歌詞' : '展開歌詞';
+      panel.classList.toggle('is-open', open);
+      // keep the line-by-line scroll effect in step while the panel opens
+      var t0 = performance.now();
+      (function follow() {
+        window.dispatchEvent(new Event('scroll'));
+        if (performance.now() - t0 < 1000) requestAnimationFrame(follow);
+      })();
+    });
+  });
 
   // Add to calendar menu
   var calBtn = document.getElementById('cal-btn');
