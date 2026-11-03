@@ -651,6 +651,7 @@ footer {
     <p class="venue-addr" data-reveal style="--d:200ms" id="addr">九龍何文田窩打老道71號</p>
     <div class="actions" data-reveal style="--d:280ms">
       <a class="btn" href="https://maps.app.goo.gl/dQ5R2ye5DJFdsdiB9" target="_blank" rel="noopener">開啟地圖</a>
+      <button class="btn" type="button" id="copy-addr">複製地址</button>
     </div>
     <div class="actions cal" data-reveal style="--d:320ms">
       <button class="btn" type="button" id="cal-btn" aria-expanded="false" aria-controls="cal-menu">加入行事曆</button>
@@ -659,6 +660,7 @@ footer {
         <a class="cal-link" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Becky+%26+Patrick+%E5%A9%9A%E7%A6%AE&amp;dates=20270116T063000Z%2F20270116T083000Z&amp;location=%E5%9F%BA%E7%9D%A3%E6%95%99%E4%BA%94%E6%97%AC%E7%AF%80%E5%A0%82%EF%BC%8C%E4%B9%9D%E9%BE%8D%E4%BD%95%E6%96%87%E7%94%B0%E7%AA%A9%E6%89%93%E8%80%81%E9%81%9371%E8%99%9F&amp;details=%E6%A2%81%E6%9F%8F%E5%9F%BA+%26+%E6%9D%8E%E5%AE%B6%E7%A9%8E+%E5%A9%9A%E7%A6%AE%0A%E5%9C%B0%E5%9C%96%EF%BC%9Ahttps%3A%2F%2Fmaps.app.goo.gl%2FdQ5R2ye5DJFdsdiB9" target="_blank" rel="noopener">Google 日曆 / Android</a>
       </div>
     </div>
+    <p class="copy-note" id="copy-note" aria-live="polite"></p>
   </section>
 
   <div class="divider" data-reveal aria-hidden="true"></div>
@@ -842,6 +844,24 @@ footer {
     var open = calMenu.hidden;
     calMenu.hidden = !open;
     calBtn.setAttribute('aria-expanded', String(open));
+  });
+
+  // Copy address
+  var btn = document.getElementById('copy-addr');
+  var note = document.getElementById('copy-note');
+  var addr = '基督教五旬節堂 九龍何文田窩打老道71號';
+  btn.addEventListener('click', function () {
+    function fallback() {
+      var r = document.createRange();
+      r.selectNodeContents(document.getElementById('addr'));
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      note.textContent = '地址已選取，請按複製 · Address selected';
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(addr).then(function () {
+        note.textContent = '已複製地址 · Address copied';
+      }, fallback);
+    } else { fallback(); }
   });
 })();
 </script>
