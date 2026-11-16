@@ -81,25 +81,27 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
   font-family: var(--font-display);
   text-transform: uppercase;
   letter-spacing: 0.32em;
-  font-size: 0.78rem;
+  font-size: 0.874rem;
   color: var(--ivory-soft);
 }
 .section-title {
-  font-family: var(--font-display);
-  text-transform: uppercase;
-  letter-spacing: var(--track);
-  font-weight: 300;
-  font-size: clamp(2rem, 6vw, 3.25rem);
-  line-height: 1.15;
+  font-family: var(--font-body);
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  padding-left: 0.32em;
+  font-size: clamp(1.9rem, 6vw, 2.8rem);
+  line-height: 1.3;
   color: var(--white);
   text-wrap: balance;
   margin: 0;
 }
 .section-sub {
-  font-family: var(--font-body);
+  font-family: var(--font-display);
+  text-transform: uppercase;
   letter-spacing: 0.3em;
-  font-size: 0.85rem;
-  color: var(--ivory-faint);
+  padding-left: 0.3em;
+  font-size: 0.9rem;
+  color: var(--ivory-soft);
   margin: 0;
 }
 
@@ -147,6 +149,16 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
   animation: fadeIn 2.4s var(--ease) both;
 }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 0.2; } }
+.hero-zh {
+  margin: 0 0 -6px;
+  line-height: 1.2;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  letter-spacing: 0.6em;
+  padding-left: 0.6em;
+  color: var(--white);
+  animation: rise 1.6s var(--ease) 0.05s both;
+}
 .hero .eyebrow { animation: rise 1.6s var(--ease) 0.2s both; }
 .names {
   margin: 34px 0 30px;
@@ -179,14 +191,16 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
   width: 64px; height: 1px; background: var(--line);
   animation: grow 1.6s var(--ease) 1.3s both;
 }
+.hero-date { letter-spacing: 0.2em; padding-left: 0.2em; }
 .hero-date {
   margin: 30px 0 6px;
   font-size: clamp(1.1rem, 3.2vw, 1.5rem);
   color: var(--white);
   animation: rise 1.6s var(--ease) 1.45s both;
 }
+.hero-day { padding-left: 0.32em; }
 .hero-day {
-  font-size: 0.8rem;
+  font-size: 0.896rem;
   letter-spacing: 0.32em;
   color: var(--ivory-soft);
   animation: rise 1.6s var(--ease) 1.6s both;
@@ -196,12 +210,13 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
   display: inline-flex;
   align-items: baseline;
   gap: 0.5em;
-  padding: 14px 28px;
+  padding: 9px 28px;
   border: 1px solid var(--line);
   color: var(--ivory);
   font-size: 0.95rem;
   animation: rise 1.6s var(--ease) 1.8s both;
 }
+.countdown { letter-spacing: 0.3em; }
 .countdown strong {
   font-family: var(--font-display);
   font-weight: 400;
@@ -230,7 +245,7 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
 }
 .person { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .role {
-  font-size: 0.82rem;
+  font-size: 0.918rem;
   letter-spacing: 0.4em;
   color: var(--ivory-faint);
 }
@@ -244,7 +259,7 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
 }
 .hosts { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 18px; }
 .hosts .pair {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   letter-spacing: 0.3em;
   color: var(--ivory);
   display: flex; gap: 1.6em; justify-content: center; flex-wrap: wrap;
@@ -307,7 +322,7 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
   color: var(--ivory-faint);
 }
 .ph svg { width: 30px; height: 30px; stroke: var(--ivory-soft); fill: none; stroke-width: 1; }
-.ph .ph-label span { font-family: var(--font-display); font-size: 0.72rem; letter-spacing: 0.32em; text-transform: uppercase; }
+.ph .ph-label span { font-family: var(--font-display); font-size: 0.806rem; letter-spacing: 0.32em; text-transform: uppercase; }
 .frame figcaption {
   font-family: var(--font-display);
   font-style: italic;
@@ -343,7 +358,7 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
 }
 .step .num {
   font-family: var(--font-display);
-  font-size: 0.8rem;
+  font-size: 0.896rem;
   letter-spacing: 0.3em;
   color: var(--ivory-faint);
 }
@@ -375,11 +390,11 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
   padding: 4px 14px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  font-size: 0.78rem;
+  font-size: 0.874rem;
   letter-spacing: 0.3em;
   color: var(--ivory-soft);
 }
-.posture .en { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.24em; font-size: 0.7rem; }
+.posture .en { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.24em; font-size: 0.784rem; }
 
 .lyrics-toggle {
   appearance: none;
@@ -436,7 +451,7 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
 .lyrics .verse-no {
   display: block;
   font-family: var(--font-display);
-  font-size: 0.72rem;
+  font-size: 0.806rem;
   letter-spacing: 0.32em;
   color: var(--ivory-faint);
   margin-bottom: 6px;
@@ -467,7 +482,7 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
   color: var(--white);
   padding: 13px 26px;
   font-family: var(--font-display);
-  font-size: 0.8rem;
+  font-size: 0.896rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   text-decoration: none;
@@ -477,7 +492,7 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
 .btn:hover { background: var(--ivory); color: var(--rose); }
 .btn:focus-visible { outline: 1px solid var(--white); outline-offset: 4px; }
 .actions.cal { margin-top: 0; flex-direction: column; align-items: center; }
-.btn { font-family: var(--font-body); letter-spacing: 0.3em; font-size: 0.92rem; padding: 13px 26px 13px calc(26px + 0.3em); }
+.btn { font-family: var(--font-body); line-height: 1.9; letter-spacing: 0.3em; font-size: 0.92rem; padding: 13px 26px 13px calc(26px + 0.3em); }
 .cal-menu { display: flex; flex-direction: column; align-items: center; gap: 4px; }
 .cal-link {
   color: var(--ivory);
@@ -497,7 +512,7 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
 .bt-time { font-size: clamp(1.4rem, 5vw, 1.8rem); color: var(--white); font-variant-numeric: lining-nums; }
 .bt-label { font-size: 0.9rem; letter-spacing: 0.3em; padding-left: 0.3em; color: var(--ivory-soft); }
 .bt-rule { width: 1px; height: 44px; background: var(--line); }
-.copy-note { min-height: 1.4em; font-size: 0.8rem; letter-spacing: 0.2em; color: var(--ivory-soft); margin: 0; }
+.copy-note { min-height: 1.4em; font-size: 0.896rem; letter-spacing: 0.2em; color: var(--ivory-soft); margin: 0; }
 
 /* ---------- Footer ---------- */
 footer {
@@ -563,7 +578,7 @@ footer {
 @media (max-width: 480px) {
   body { font-size: 15px; }
   .names { flex-direction: column; align-items: center; row-gap: 0.08em; }
-  .countdown { padding: 12px 20px; }
+  .countdown { padding: 8px 20px; }
   .step { padding-block: 32px; }
 }
 
@@ -579,12 +594,13 @@ footer {
   <!-- HERO -->
   <section class="scene hero" id="top" aria-label="Welcome">
     <div class="hero-bg" aria-hidden="true"></div>
+    <p class="hero-zh">喜結良緣</p>
     <p class="eyebrow">The Wedding of</p>
     <h1 class="names"><span>Becky</span><span class="amp">&amp;</span><span>Patrick</span></h1>
     <div class="hero-rule" aria-hidden="true"></div>
-    <p class="hero-date caps">January 16, 2027</p>
-    <p class="hero-day caps">Saturday · 3:00 PM · Hong Kong</p>
-    <p class="countdown caps" aria-live="polite"><strong id="days">79</strong> <span id="days-label">Days to go!</span></p>
+    <p class="hero-date">2027年1月16日</p>
+    <p class="hero-day">星期六 · 下午3:00 · 香港</p>
+    <p class="countdown" aria-live="polite"><span id="days-pre">還有</span><strong id="days">79</strong><span id="days-label">天</span></p>
   </section>
 
   <div class="divider" data-reveal aria-hidden="true"></div>
@@ -599,8 +615,8 @@ footer {
   <!-- INVITATION -->
   <section class="scene" id="invitation" aria-labelledby="t-invite">
     <div class="scene-head" data-reveal>
-      <h2 class="section-title" id="t-invite">You&rsquo;re Invited</h2>
-      <p class="section-sub">誠 意 邀 請</p>
+      <h2 class="section-title" id="t-invite">誠意邀請</h2>
+      <p class="section-sub">You&rsquo;re Invited</p>
     </div>
 
     <div class="invite-text" data-reveal style="--d:120ms">
@@ -609,11 +625,11 @@ footer {
 
     <div class="couple" data-reveal style="--d:200ms">
       <div class="person">
-        <span class="role">新郎 · <span class="en">Groom</span></span>
+        <span class="role">新郎</span>
         <span class="name">梁柏基</span>
       </div>
       <div class="person">
-        <span class="role">新娘 · <span class="en">Bride</span></span>
+        <span class="role">新娘</span>
         <span class="name">李家穎</span>
       </div>
     </div>
@@ -639,8 +655,8 @@ footer {
   <!-- VENUE -->
   <section class="scene" id="venue" aria-labelledby="t-venue">
     <div class="scene-head" data-reveal>
-      <h2 class="section-title" id="t-venue">Ceremony</h2>
-      <p class="section-sub">證 婚 典 禮</p>
+      <h2 class="section-title" id="t-venue">證婚典禮</h2>
+      <p class="section-sub">Ceremony</p>
     </div>
     <div class="banquet-times" data-reveal style="--d:80ms">
       <div class="bt"><span class="bt-time caps">2:30 PM</span><span class="bt-label">入座</span></div>
@@ -675,8 +691,8 @@ footer {
   <!-- RUNDOWN -->
   <section class="scene" id="rundown" aria-labelledby="t-rundown">
     <div class="scene-head" data-reveal>
-      <h2 class="section-title" id="t-rundown">Order of Service</h2>
-      <p class="section-sub">婚 禮 程 序</p>
+      <h2 class="section-title" id="t-rundown">婚禮程序</h2>
+      <p class="section-sub">Order of Service</p>
     </div>
 
     <ol class="rundown">
@@ -760,10 +776,10 @@ footer {
   function tick() {
     var diff = target - Date.now();
     var days = Math.ceil(diff / 86400000);
-    if (days > 1) { daysEl.textContent = days; labelEl.textContent = 'Days to go!'; }
-    else if (days === 1) { daysEl.textContent = '1'; labelEl.textContent = 'Day to go!'; }
-    else if (diff > -86400000) { daysEl.textContent = ''; labelEl.textContent = 'Today is the day!'; }
-    else { daysEl.textContent = ''; labelEl.textContent = 'Just married'; }
+    var preEl = document.getElementById('days-pre');
+    if (days >= 1) { preEl.textContent = '還有'; daysEl.textContent = days; labelEl.textContent = '天'; }
+    else if (diff > -86400000) { preEl.textContent = ''; daysEl.textContent = ''; labelEl.textContent = '就是今天！'; }
+    else { preEl.textContent = ''; daysEl.textContent = ''; labelEl.textContent = '感謝您的祝福'; }
   }
   tick();
   setInterval(tick, 60000);
