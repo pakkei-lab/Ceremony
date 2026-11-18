@@ -170,10 +170,9 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
   line-height: 1.02;
   font-size: clamp(2.9rem, 11vw, 7rem);
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: baseline;
-  column-gap: 0.32em;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0.08em;
 }
 .names span { display: inline-block; animation: rise 1.8s var(--ease) both; }
 .names span:nth-child(1) { animation-delay: 0.45s; }
@@ -387,7 +386,7 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
 .posture {
   margin-top: 4px;
   display: inline-flex; align-items: center; gap: 0.8em;
-  padding: 4px 14px;
+  padding: 4px 14px 4px calc(14px + 0.3em);
   border: 1px solid var(--line);
   border-radius: 999px;
   font-size: 0.874rem;
@@ -421,6 +420,7 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
 }
 .lyrics-toggle[aria-expanded="true"] .lt-icon { transform: translateY(2px) rotate(-135deg); }
 .lyrics-wrap {
+  box-sizing: border-box;
   display: grid;
   grid-template-rows: 0fr;
   width: 100%;
@@ -431,6 +431,7 @@ main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
 .lyrics-inner { overflow: hidden; min-height: 0; }
 .lyrics-inner .lyrics { max-width: none; }
 .lyrics {
+  box-sizing: border-box;
   margin-top: 22px;
   width: 100%;
   max-width: 30em;
@@ -582,6 +583,12 @@ footer {
   .step { padding-block: 32px; }
 }
 
+.lyric-line { text-wrap: balance; }
+@media (max-width: 420px) {
+  .lyrics { padding-left: 4px; padding-right: 4px; }
+  .lyrics .verse { letter-spacing: 0.06em; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -700,19 +707,19 @@ footer {
         <span class="num">01</span>
         <h3>序樂</h3>
         <p class="detail">主禮人、詩班進堂</p>
-        <span class="posture">眾立 <span class="en">Please stand</span></span>
+        <span class="posture">眾立</span>
       </li>
       <li class="step" data-reveal>
         <span class="num">02</span>
         <h3>婚樂</h3>
         <p class="detail">新人進堂</p>
-        <span class="posture">眾立 <span class="en">Please stand</span></span>
+        <span class="posture">眾立</span>
       </li>
       <li class="step" data-reveal>
         <span class="num">03</span>
         <h3>會眾唱詩</h3>
         <p class="detail">求賜福屬主之家</p>
-        <span class="posture">眾立 <span class="en">Please stand</span></span>
+        <span class="posture">眾立</span>
         <button class="lyrics-toggle" type="button" aria-expanded="false" aria-controls="lyrics-1"><span class="lt-label">展開歌詞</span><span class="lt-icon" aria-hidden="true"></span></button>
         <div class="lyrics-wrap" id="lyrics-1"><div class="lyrics-inner"><div class="lyrics">
           <p class="verse"><span class="verse-no">Verse I</span><span class="lyric-line">求主賜福我們屬主之家，親臨進居其中。</span><span class="lyric-line">主之話語作我庇護，不被罪惡侵擾。</span><span class="lyric-line">一室溫馨不聞爭競，和睦安詳日增，</span><span class="lyric-line">生活起居豐足美滿，主內平安洋溢。</span></p>
@@ -723,19 +730,19 @@ footer {
       <li class="step" data-reveal>
         <span class="num">04</span>
         <h3>證婚</h3>
-        <span class="posture">眾坐 <span class="en">Please be seated</span></span>
+        <span class="posture">眾坐</span>
       </li>
       <li class="step" data-reveal>
         <span class="num">05</span>
         <h3>詩班獻詩</h3>
         <p class="detail latin">All Things Bright &amp; Beautiful</p>
-        <span class="posture">眾坐 <span class="en">Please be seated</span></span>
+        <span class="posture">眾坐</span>
       </li>
       <li class="step" data-reveal>
         <span class="num">06</span>
         <h3>會眾唱詩</h3>
         <p class="detail">讚美詩</p>
-        <span class="posture">眾立 <span class="en">Please stand</span></span>
+        <span class="posture">眾立</span>
         <button class="lyrics-toggle" type="button" aria-expanded="false" aria-controls="lyrics-2"><span class="lt-label">展開歌詞</span><span class="lt-icon" aria-hidden="true"></span></button>
         <div class="lyrics-wrap" id="lyrics-2"><div class="lyrics-inner"><div class="lyrics">
           <p class="verse"><span class="lyric-line">讚美天父愛世慈恩，讚美耶穌代贖鴻恩，</span><span class="lyric-line">讚美聖靈開我茅塞，讚美三位合一真神。</span></p>
@@ -744,13 +751,13 @@ footer {
       <li class="step" data-reveal>
         <span class="num">07</span>
         <h3>祝福</h3>
-        <span class="posture">眾立 <span class="en">Please stand</span></span>
+        <span class="posture">眾立</span>
       </li>
       <li class="step" data-reveal>
         <span class="num">08</span>
         <h3>殿樂</h3>
         <p class="detail">新人、主婚人、主禮人及詩班依次步出禮堂</p>
-        <span class="posture">眾立 <span class="en">Please stand</span></span>
+        <span class="posture">眾立</span>
       </li>
     </ol>
   </section>
